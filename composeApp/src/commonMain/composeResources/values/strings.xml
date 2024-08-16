@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_onboarding_title">Welcome to EasyMart</string>
+    <string name="first_onboarding_desc">Discover the best deals and latest products right at your fingertips. Your one-stop shop for all your needs.</string>
+    <string name="second_onboarding_title">Shop with Ease</string>
+    <string name="second_onboarding_desc">Enjoy a seamless shopping experience with our intuitive interface. Browse, search, and purchase with just a few taps.</string>
+    <string name="third_onboarding_title">Fast and Secure Checkout</string>
+    <string name="third_onboarding_desc">Checkout quickly and securely with multiple payment options. Your satisfaction and security are our top priorities.</string>
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+</resources>

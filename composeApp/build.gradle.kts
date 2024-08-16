@@ -1,11 +1,11 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.jetbrainsCompose.multiplatform)
     alias(libs.plugins.compose.compiler)
 }
 
@@ -31,18 +31,42 @@ kotlin {
     sourceSets {
         
         androidMain.dependencies {
-            implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
+
+            implementation(project(":shared"))
+            api(libs.koin.core)
+            api(libs.koin.compose)
+
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+
+
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.bottomSheetNavigator)
+            implementation(libs.voyager.transitions)
+            implementation(libs.voyager.tabNavigator)
+            implementation(libs.voyager.koin)
+
+
+            api(libs.datastore)
+            api(libs.datastore.preferences)
         }
+
+
     }
+}
+
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "composeApp.src.commonMain.composeResources"
+    generateResClass = always
 }
 
 android {
@@ -78,7 +102,10 @@ android {
         compose = true
     }
     dependencies {
+        implementation(platform(libs.compose.bom))
         debugImplementation(compose.uiTooling)
+        debugImplementation(libs.androidx.ui.tooling.preview)
+        debugImplementation(libs.androidx.ui.tooling)
     }
 }
 
