@@ -1,7 +1,8 @@
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Surface
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
@@ -13,7 +14,7 @@ fun EasyMartApp(
 ) {
 
 
-    EasyMartTheme(false) {
+    EasyMartTheme() {
         Surface(
             modifier = Modifier
                 .fillMaxSize()
